@@ -80,16 +80,23 @@ values={[
     ```
 
 - Optional: use a python virtual environment (otherwise jump to step "Install pytap2")
-  - Install python-virtualenvwrapper (arch based distros as an example)
-    ```shell
-    sudo pacman -Syu python-virtualenvwrapper
-    ```
-  - Create a virtual environment
-    ```shell
-    source /usr/bin/virtualenvwrapper.sh
-    mkvirtualenv meshtastic
-    workon meshtastic
-    ```
+  - Arch-based:
+     - Install python-virtualenvwrapper (arch based distros as an example)
+       ```shell
+       sudo pacman -Syu python-virtualenvwrapper
+       ```
+     - Create a virtual environment
+       ```shell
+       source /usr/bin/virtualenvwrapper.sh
+       mkvirtualenv meshtastic
+       workon meshtastic
+       ```
+  - Debian-based (Ubuntu/Rasbian): 
+    - Create environment and switch to it
+      ```shell
+      python3 -m venv .meshtastic
+      source .meshtastic/bin/activate  
+      ```
 - Install pytap2
   ```shell
   pip3 install --upgrade pytap2
@@ -99,6 +106,8 @@ values={[
   pip3 install --upgrade meshtastic
   ```
   - Using pipx as an alternative to pip3 if `externally-managed-environment` error is encountered
+
+    *Note: Debian/Rasbian should use a virtual environment to counter this error, the below steps are for other distributions.*
     ```shell
     sudo apt install pipx && pipx install meshtastic
     ```
